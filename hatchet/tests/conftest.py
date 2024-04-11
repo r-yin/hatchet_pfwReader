@@ -1168,3 +1168,27 @@ def caliper_ordered_json_dup(data_dir, tmpdir):
     tmpfile = os.path.join(str(tmpdir), "caliper-region-dup-node-order.json")
 
     return tmpfile
+
+
+@pytest.fixture
+def laghos_perfflowaspect_array(data_dir, tmpdir):
+    """Builds a temporary directory containing the laghos PerfFlowAspect file."""
+    pfa_dir = os.path.join(data_dir, "perfflowaspect-laghos")
+    pfa_file = os.path.join(pfa_dir, "laghos_1iter.pfw")
+
+    shutil.copy(pfa_file, str(tmpdir))
+    tmpfile = os.path.join(str(tmpdir), "laghos_1iter.pfw")
+
+    return tmpfile
+
+
+@pytest.fixture
+def foobar_perfflowaspect_array(data_dir, tmpdir):
+    """Builds a temporary directory containing the foobar PerfFlowAspect file."""
+    pfa_dir = os.path.join(data_dir, "perfflowaspect-foobar")
+    pfa_file = os.path.join(pfa_dir, "perfflow.quartz1532.3570764-1iter.pfw")
+
+    shutil.copy(pfa_file, str(tmpdir))
+    tmpfile = os.path.join(str(tmpdir), "perfflow.quartz1532.3570764-1iter.pfw")
+
+    return tmpfile
